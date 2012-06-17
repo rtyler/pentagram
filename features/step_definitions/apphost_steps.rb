@@ -15,7 +15,15 @@ end
 end
 
 Given /^the host is to become a PentaGram app host$/ do
-  pending # express the regexp above with the code you wish you had
+  File.open('site.pp', 'w') do |fd|
+    fd.write("""
+node default {
+  include pentagram-web
+
+  group { 'puppet' : ensure => present; }
+}
+""")
+  end
 end
 
 When /^I provision the host$/ do
