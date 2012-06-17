@@ -27,7 +27,9 @@ node default {
 end
 
 When /^I provision the host$/ do
-  pending # express the regexp above with the code you wish you had
+  @engine = Blimpy::Engine.new
+  @engine.load_file(File.open(File.join(@dir, '/Blimpfile')).read)
+  @engine.fleet.start
 end
 
 Then /^it should be running a web server$/ do

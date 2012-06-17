@@ -1,6 +1,9 @@
 require 'fileutils'
 require 'temp_dir'
 
+require 'blimpy'
+require 'blimpy/cli'
+
 Before do
   # Before every scenario, we want to create a temporary directory that
   # will become our fake-root for running Blimpy commands and other things
@@ -17,6 +20,8 @@ Before do
   # Blimpy can find and use it properly
   FileUtils.cp(File.join(File.dirname(__FILE__), '/bootstrap.sh'),
                @dir)
+  FileUtils.chmod(0755, File.join(@dir, '/bootstrap.sh'))
+
   puts "Using temp dir: #{@dir}"
 end
 
@@ -26,4 +31,7 @@ After do |scenario|
   unless @original_dir.nil?
     Dir.chdir(@original_dir)
   end
+
+  fleet = Blimpy::Fleet.new
+  fleet.destroy
 end
