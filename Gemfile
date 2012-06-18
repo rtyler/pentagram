@@ -11,6 +11,6 @@ group :test do
   gem 'puppet'
 
   gem 'cucumber'
-  gem 'blimpy', :path => '/home/tyler/source/github/gems/blimpy'
+  gem 'blimpy', '~> 0.3'
   gem 'tempdir'
 end
