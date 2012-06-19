@@ -16,4 +16,10 @@ describe 'pentagram-web' do
   it 'must include the Puppet passenger module' do
     should include_class('passenger')
   end
+
+  it 'should include the build-essential for passenger' do
+    should contain_package('build-essential').with(
+      {'ensure' => 'present'}
+    )
+  end
 end

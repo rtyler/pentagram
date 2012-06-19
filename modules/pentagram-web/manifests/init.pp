@@ -4,4 +4,9 @@ class pentagram-web {
     'ruby' : ;
     'passenger' : ;
   }
+
+  package {
+    'build-essential' :
+      ensure => present;
+  }
 }
