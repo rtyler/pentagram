@@ -30,10 +30,13 @@ When /^I provision the host$/ do
   @engine = Blimpy::Engine.new
   @engine.load_file(File.open(File.join(@dir, '/Blimpfile')).read)
   @engine.fleet.start
+  @vm = @engine.fleet.ships.first
+  @vm.should_not be_nil
 end
 
 Then /^it should be running a web server$/ do
-  pending # express the regexp above with the code you wish you had
+  running = @vm.ssh_into('pgrep apache2')
+  running.should be_true
 end
 
 Then /^it should be responding to web requests$/ do
