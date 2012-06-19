@@ -22,4 +22,10 @@ describe 'pentagram-web' do
       {'ensure' => 'present'}
     )
   end
+
+  it 'should include the zlib development headers for passenger' do
+    should contain_package('zlib-devel').with(
+      {'ensure' => 'present'}
+    )
+  end
 end
