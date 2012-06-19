@@ -26,12 +26,12 @@ Before do
 end
 
 After do |scenario|
+  fleet = Blimpy::Fleet.new
+  fleet.destroy
+
   # After each scenario, regardless of whether it failed or not we should
   # change back to the original directory we started in
   unless @original_dir.nil?
     Dir.chdir(@original_dir)
   end
-
-  fleet = Blimpy::Fleet.new
-  fleet.destroy
 end
