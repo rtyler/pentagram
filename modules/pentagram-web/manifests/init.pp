@@ -8,7 +8,7 @@ class pentagram-web {
   package {
     'build-essential' :
       ensure => present;
-    'zlib-devel' :
+    'libz-dev' :
       ensure => present;
   }
 }
