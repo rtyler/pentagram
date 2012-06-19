@@ -40,6 +40,7 @@ Then /^it should be running a web server$/ do
 end
 
 Then /^it should be responding to web requests$/ do
-  pending # express the regexp above with the code you wish you had
+  responding = @vm.ssh_into('curl -s http://localhost -o /dev/null')
+  responding.should be_true
 end
 
