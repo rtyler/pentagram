@@ -36,6 +36,9 @@ GEM
       net-ssh (>= 1.99.1)
     net-ssh (2.5.2)
     nokogiri (1.5.4)
+    parallel (0.5.17)
+    parallel_tests (0.8.4)
+      parallel
     puppet (2.7.16)
       facter (~> 1.5)
     rack (1.4.1)
@@ -67,6 +70,7 @@ DEPENDENCIES
   blimpy (~> 0.3)
   cucumber
   haml
+  parallel_tests (>= 0.8.4)
   puppet
   rspec
   rspec-puppet
