@@ -5,8 +5,8 @@ Given /^an empty host$/ do
 Blimpy.fleet do |fleet|
   fleet.add(:aws) do |ship|
     ship.name = 'pentagram-cucumber'
-    ship.livery = :cwd
-    ship.flavor = 'm1.small'
+    ship.livery = :puppet
+    ship.flavor = 'm1.large'
     ship.ports = [22, 80]
   end
 end
